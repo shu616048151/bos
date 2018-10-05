@@ -1,0 +1,11 @@
+package bos.service;
+
+import bos.domain.User;
+
+public interface UserService {
+
+	public User login(User model);
+
+	public void updatePassword(String id, String password);
+
+}

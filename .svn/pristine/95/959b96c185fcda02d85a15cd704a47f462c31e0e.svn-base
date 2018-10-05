@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:25:45 +0800] "GET /bos/login.jsp HTTP/1.1" 200 3858 http-bio-8888-exec-1 1323
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:25:46 +0800] "GET /bos/validatecode.jsp HTTP/1.1" 200 1866 http-bio-8888-exec-7 456
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:22 +0800] "POST /bos/user_login.action HTTP/1.1" 200 8487 http-bio-8888-exec-8 27862
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "POST /bos/json/menu.json HTTP/1.1" 200 963 http-bio-8888-exec-6 3
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "POST /bos/json/admin.json HTTP/1.1" 200 281 http-bio-8888-exec-2 2
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_common_home.action HTTP/1.1" 200 2964 http-bio-8888-exec-9 238
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_common_home.action HTTP/1.1" 200 2964 http-bio-8888-exec-7 128
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_common_home.action HTTP/1.1" 200 2964 http-bio-8888-exec-10 144
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_common_home.action HTTP/1.1" 200 2964 http-bio-8888-exec-1 134
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_portal_yujing.action?_=1529853983141 HTTP/1.1" 200 614 http-bio-8888-exec-6 176
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_portal_bug.action?_=1529853983155 HTTP/1.1" 200 861 http-bio-8888-exec-3 168
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_portal_daiban.action?_=1529853983128 HTTP/1.1" 200 887 http-bio-8888-exec-2 198
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:23 +0800] "GET /bos/page_portal_gonggao.action?_=1529853983116 HTTP/1.1" 200 637 http-bio-8888-exec-7 211
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:26 +0800] "GET /bos/js/easyui/themes/default/images/messager_icons.png HTTP/1.1" 200 6116 http-bio-8888-exec-4 3
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:27 +0800] "GET /bos/user_logout.action HTTP/1.1" 200 3858 http-bio-8888-exec-4 84
+0:0:0:0:0:0:0:1 - - [24/Jun/2018:23:26:27 +0800] "GET /bos/validatecode.jsp HTTP/1.1" 200 1902 http-bio-8888-exec-1 9

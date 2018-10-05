@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	 xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd
+						http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx.xsd
+						 http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+			            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+			            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
+	<!-- 注解事务驱动 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!--注解支持  -->
+	<context:annotation-config/>	
+	<!--扫描器  -->
+	<context:component-scan base-package="bos"></context:component-scan>
+		
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		 <property name="mappingLocations">
+			<value>classpath:bos/domain/*.hbm.xml</value>
+		</property> 
+	</bean>
+	
+	<!-- DataSource -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://39.108.210.254:3306/bos"/>
+		<property name="username" value="root"/>
+		<property name="password" value="123"/>
+	</bean>
+	<jaxws:client address="http://127.0.0.1:8080/crm/service/customer" id="customerService" serviceClass="bos.service.CustomerService" >
+	</jaxws:client>
+</beans>	
+	

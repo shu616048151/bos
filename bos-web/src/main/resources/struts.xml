@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.multipart.maxSize" value="200000000"/> 
+    <constant name="struts.multipart.saveDir" value="D:\\temp"></constant>
+    <constant name="struts.custom.i18n.resources" value="msg" />
+    <package name="default" namespace="/" extends="struts-default">
+    	
+    	<!-- <interceptors>
+    		<interceptor-stack name="mystack">
+    			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    		<interceptor name="loginInterceptor" class="bos.interceptor.LoginInterceptor"></interceptor>
+    	</interceptors>
+    	<default-interceptor-ref name="mystack"></default-interceptor-ref> -->
+    	
+    	<global-results>
+    		<result name="login">/login.jsp</result>
+    	</global-results>
+    	
+   		<action name="page_*_*">
+			<result type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>
+		</action>
+    	<action name="user_*" class="userAction" method="{1}">
+    		<result name="login">/login.jsp</result>
+    		<result name="home">/WEB-INF/pages/common/index.jsp</result>
+    		<result name="list">/WEB-INF/pages/admin/userlist.jsp</result>
+    	</action>
+    	<action name="staff_*" class="staffAction" method="{1}">
+    		<result name="list">/WEB-INF/pages/base/staff.jsp</result>
+    	</action>
+    	<action name="region_*" class="regionAction" method="{1}">
+    	</action>
+    	<action name="subarea_*" class="subareaAction" method="{1}">
+    		<result name="addSUCCESS">/WEB-INF/pages/base/subarea.jsp</result>
+    	</action>
+    	<action name="decideZone_*" class="decideZoneAction" method="{1}">
+    		<result name="list">/WEB-INF/pages/base/decidedzone.jsp</result>
+    	</action>
+    	<action name="noticeBill_*" class="noticeBillAction" method="{1}">
+    		<result name="addSuccess">/WEB-INF/pages/qupai/noticebill_add.jsp</result>
+    	</action>
+    	<action name="function_*" class="functionAction" method="{1}">
+    		<result name="addSuccess">/WEB-INF/pages/admin/function_add.jsp</result>
+    	</action>
+    	<action name="role_*" class="roleAction" method="{1}">
+    		<result name="addSuccess">/WEB-INF/pages/admin/role_add.jsp</result>
+    	</action>
+    	<action name="workOrderManager_*" class="workOrderManagerAction" method="{1}">
+    	</action>
+    </package>
+</struts>

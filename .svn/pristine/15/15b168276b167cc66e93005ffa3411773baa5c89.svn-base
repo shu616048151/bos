@@ -1,0 +1,9 @@
+package bos.dao;
+
+import bos.domain.User;
+
+public interface UserDao {
+
+	public  User findUserByUserNameAndPassword(String username, String password);
+
+}

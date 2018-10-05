@@ -1,0 +1,30 @@
+package bos.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import bos.dao.UserDao;
+import bos.domain.User;
+import bos.service.UserService;
+import bos.utils.MD5Utils;
+@Service
+@Transactional
+public class UserServiceImpl implements UserService{
+	@Autowired
+	private UserDao userDao;
+
+	@Override
+	public User login(User model) {
+		String password=MD5Utils.md5(model.getPassword());
+		return userDao.findUserByUserNameAndPassword(model.getUsername(),password);
+	}
+
+	@Override
+	public void updatePassword(String id, String password) {
+		// TODO Auto-generated method stub
+		password = MD5Utils.md5(password);
+		userDao.executeUpdate("user.updatePassword",password,id);
+	}
+
+}

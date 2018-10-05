@@ -1,0 +1,34 @@
+package bos.base.action;
+
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
+	
+	protected T model;
+	
+	@Override
+	public T getModel() {
+		// TODO Auto-generated method stub
+		return model;
+	}
+	
+	public BaseAction(){
+		Type genType = getClass().getGenericSuperclass();
+		Type[] actualTypeArguments = ((ParameterizedType)genType).getActualTypeArguments();
+		Class<T> entityclass=(Class<T>) actualTypeArguments[0];
+		try {
+			model = entityclass.newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
